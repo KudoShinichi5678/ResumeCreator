@@ -1,0 +1,233 @@
+/* ==========================================================================
+   ResumeCreator - Intelligent Resume Builder & ATS Optimizer
+   Design System & Global Rules
+   ========================================================================== */
+
+:root {
+  /* Dark Theme Neutral Palette for the Editor & Workspace */
+  --rc-bg-app: #090d16;
+  --rc-bg-surface: #0f1523;
+  --rc-bg-card: #141c2e;
+  --rc-bg-card-hover: #19243b;
+  --rc-bg-input: #0b111e;
+  --rc-border-subtle: #1d273b;
+  --rc-border-card: #273550;
+  
+  --rc-text-main: #f8fafc;
+  --rc-text-secondary: #94a3b8;
+  --rc-text-muted: #64748b;
+  
+  /* Primary & Accent Accents */
+  --rc-accent-blue: #3b82f6;
+  --rc-accent-blue-hover: #2563eb;
+  --rc-accent-emerald: #10b981;
+  --rc-accent-amber: #f59e0b;
+  --rc-accent-rose: #f43f5e;
+  --rc-accent-purple: #8b5cf6;
+  --rc-accent-cyan: #06b6d4;
+
+  --rc-font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --rc-font-mono: 'JetBrains Mono', monospace;
+
+  --rc-radius-sm: 6px;
+  --rc-radius-md: 8px;
+  --rc-radius-lg: 12px;
+  --rc-radius-xl: 16px;
+  --rc-radius-full: 9999px;
+
+  --rc-transition: 0.15s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--rc-font-sans);
+  background-color: var(--rc-bg-app);
+  color: var(--rc-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Webkit Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--rc-bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2a40;
+  border-radius: var(--rc-radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334466;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Modal Overlay & Base */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(3, 7, 18, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.modal-content {
+  background: var(--rc-bg-surface);
+  border: 1px solid var(--rc-border-card);
+  border-radius: var(--rc-radius-xl);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalScaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--rc-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rc-text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--rc-border-subtle);
+  transition: all var(--rc-transition);
+}
+.modal-close-btn:hover {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Universal Toast Notification */
+.rc-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  background: #151e30;
+  border: 1px solid var(--rc-border-card);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: var(--rc-radius-md);
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: toastSlideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.rc-toast-success {
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+.rc-toast-warning {
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #fbbf24;
+}
+
+@keyframes toastSlideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   PRINT SPECIFICATION - HIGH PRECISION A4 PDF OUTPUT
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  body, html {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .rc-header,
+  .rc-editor-panel,
+  .rc-preview-toolbar,
+  .rc-toast,
+  .modal-overlay,
+  .rc-mobile-dock,
+  .rc-view-toggle-bar {
+    display: none !important;
+  }
+
+  .rc-app-shell,
+  .rc-workspace-main,
+  .rc-preview-container,
+  .rc-paper-viewport,
+  .rc-paper-scaler {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+    transform: none !important;
+  }
+
+  #resume-printable-area {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #ffffff !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
