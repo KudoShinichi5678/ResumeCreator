@@ -190,7 +190,9 @@ input, textarea, select {
 
   .rc-header,
   .rc-editor-panel,
+  .rc-template-selector-strip,
   .rc-preview-toolbar,
+  .rc-page-break-indicator,
   .rc-toast,
   .modal-overlay,
   .rc-mobile-dock,

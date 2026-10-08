@@ -136,7 +136,9 @@ export default function App() {
         <ResumePreview 
           resumeData={resumeData}
           templateId={activeTemplateId}
+          onSelectTemplate={setActiveTemplateId}
           colorTheme={activeColorTheme}
+          onSelectColorTheme={setActiveColorThemeId}
           fontOption={activeFont}
           spacingOption={activeSpacing}
           onPrint={handlePrint}

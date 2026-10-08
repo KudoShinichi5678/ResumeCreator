@@ -4,28 +4,63 @@ export const TEMPLATES = [
     name: 'Modern Tech',
     badge: 'Popular',
     description: 'Crisp header, accent badges, sleek dividers, and balanced white space.',
-    previewIcon: 'LayoutTemplate'
+    previewIcon: 'LayoutTemplate',
+    layoutType: 'split-bottom',
+    bestFor: 'Software Engineers, Product Managers, Tech Startups'
   },
   {
     id: 'minimal',
     name: 'Clean ATS Minimal',
     badge: 'ATS 99%',
-    description: 'Single-column scannable format, optimized for ATS parsers and recruiters.',
-    previewIcon: 'FileText'
+    description: 'Single-column scannable format, optimized for ATS parsers and corporate recruiters.',
+    previewIcon: 'FileText',
+    layoutType: 'single-col',
+    bestFor: 'Enterprise Roles, Finance, Traditional Corporates, Taleo/Workday'
   },
   {
     id: 'creative',
     name: 'Creative Sidebar',
     badge: 'Two-Column',
-    description: 'Distinctive colored sidebar for skills & credentials with broad content area.',
-    previewIcon: 'Columns2'
+    description: 'Distinctive tinted sidebar for skills & credentials with wide main experience area.',
+    previewIcon: 'Columns2',
+    layoutType: 'two-col-left',
+    bestFor: 'Designers, Frontend Developers, Marketers, Creative Leads'
   },
   {
     id: 'executive',
     name: 'Executive Classic',
     badge: 'Senior & Lead',
     description: 'Serif headings, formal double rule accents, and timeless editorial tone.',
-    previewIcon: 'Award'
+    previewIcon: 'Award',
+    layoutType: 'editorial',
+    bestFor: 'Directors, VP/C-Suite, Management Consultants, Legal'
+  },
+  {
+    id: 'innovator',
+    name: 'Tech Innovator',
+    badge: 'Dev & Cloud',
+    description: 'High-impact technical resume with monospace tags, project links & skills matrix sidebar.',
+    previewIcon: 'Code2',
+    layoutType: 'two-col-right',
+    bestFor: 'Full-Stack Developers, DevOps/SRE, Cloud Architects, AI Engineers'
+  },
+  {
+    id: 'nordic',
+    name: 'Nordic Elegance',
+    badge: 'Minimalist',
+    description: 'Refined Scandinavian layout with soft tinted section headers and serene typography.',
+    previewIcon: 'Sparkles',
+    layoutType: 'clean-linear',
+    bestFor: 'UX/UI Designers, Researchers, Consultants, Modern Professionals'
+  },
+  {
+    id: 'compact',
+    name: 'Compact 1-Page',
+    badge: '1-Page Fit',
+    description: 'High-density balanced 2-column format engineered to fit extensive careers cleanly onto one page.',
+    previewIcon: 'AlignJustify',
+    layoutType: 'compact-grid',
+    bestFor: 'Dense Work Histories, Mid-to-Senior Engineers, Space Optimization'
   }
 ];
 
@@ -77,6 +112,22 @@ export const COLOR_THEMES = [
     primaryDark: '#075985',
     accentBg: '#f0f9ff',
     border: '#bae6fd'
+  },
+  {
+    id: 'amber',
+    name: 'Amber Gold',
+    primary: '#d97706',
+    primaryDark: '#b45309',
+    accentBg: '#fffbeb',
+    border: '#fde68a'
+  },
+  {
+    id: 'plum',
+    name: 'Midnight Plum',
+    primary: '#9333ea',
+    primaryDark: '#6b21a8',
+    accentBg: '#faf5ff',
+    border: '#e9d5ff'
   }
 ];
 

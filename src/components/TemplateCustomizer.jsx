@@ -64,6 +64,11 @@ export function TemplateCustomizer({
                     <span className="tpl-badge">{tpl.badge}</span>
                   </div>
                   <p className="tpl-desc">{tpl.description}</p>
+                  {tpl.bestFor && (
+                    <div className="tpl-best-for-tag">
+                      <span>Ideal for: </span>{tpl.bestFor}
+                    </div>
+                  )}
                   {isSelected && (
                     <div className="tpl-checked-badge">
                       <Check size={12} />
